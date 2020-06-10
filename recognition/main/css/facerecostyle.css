@@ -1,0 +1,159 @@
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,body{
+    background-color: #fff;
+    color: #555;
+    font-family: 'Lato','Arial', sans-serif;
+    font-weight: 200; 
+    font-size: 25px;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+}
+
+.row{
+    max-width: 1150px;
+    margin: 0 auto;
+}
+
+/*HEADER*/
+header {
+    text-align: right;
+    height: 100vh;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7),rgba(0, 0, 0, 0.7)),url(img/Facial-Recognition-For-Good_resized.jpg);
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    background-attachment: scroll;
+}
+
+header h1{
+    font-size: 60px;
+    font-weight: 300;
+    margin: 0;   
+    text-decoration-line: underline;
+    color: aliceblue;
+    margin-right: 50px
+    
+}
+
+header .btn{
+    margin-right: 30px;
+    margin-top: 200px;
+    
+}
+
+/*------BUTTONS--------*/
+
+.btn{
+    margin-top: 20px
+}
+
+.btn:link,
+.btn:visited{
+     display: inline-block;
+     padding: 10px 30px;
+     font-weight: 300;
+     text-decoration: none;
+     border-radius: 200px;
+     transition: background-color 0.2s, border 0.2s, color 0.2s;
+}
+
+.btn-full:link,
+.btn-full:visited{
+     background-color: #e67e22;
+     border: 1px solid #e67e22;
+     color: #fff;
+    margin-right: 15px; 
+}
+
+.btn-ghost:link,
+.btn-ghost:visited{
+    border: 1px solid #e67e22;  
+    color:  #e67e22;
+}
+
+.btn:hover,
+.btn:active{
+    background-color: #bf6516;
+}
+
+
+.btn-full:hover,
+.btn-full:active{
+     border: 1px solid #e67e22;
+}
+
+.btn-ghost:hover,
+.btn-ghost:active{
+    border: 1px solid #e67e22;  
+    color: white;
+}
+
+
+
+
+/*FOOTER*/
+
+footer {
+    background-color: #333;
+    padding: 50px;
+    font-size: 80%;
+}
+
+.footer-nav {
+    list-style: none;
+    float: left;
+}
+
+.social-links {
+    list-style: none;
+    float: right;
+}
+
+.footer-nav li,
+.social-links li {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+.footer-nav li:last-child,
+.social-links li:last-child{
+    margin-right: 0;
+}
+
+.footer-nav li a:link,
+.social-links li a:visited,
+.footer-nav li a:visited,
+.social-links li a:link {
+    text-decoration: none;
+    border: 0;
+    color: white;
+    
+}
+
+.footer-nav li a:hover,
+.footer-nav li a:active{
+    color: #bf6516;
+}
+.social-links li a:link,
+.social-links li a:visited{
+    font-size: 160%;
+}
+
+
+.footer ion-icon:hover
+{
+    color: aqua
+}
+
+footer p{
+    color: white;
+    text-align: center;
+    font-size: 90%;
+    margin-top: 20px; 
+    font-weight: 300
+}

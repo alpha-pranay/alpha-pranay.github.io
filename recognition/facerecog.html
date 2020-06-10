@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="">
+            
+        
+            <link rel="stylesheet" type="text/css" href="side/css/normalize.css">
+            <link rel="stylesheet" type="text/css" href="side/css/grid.css"> 
+            <link rel="stylesheet" type="text/css" href="side/css/animate.css">
+            <link rel="stylesheet" type="text/css" href="main/css/facerecostyle.css">
+            <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;1,100&display=swap" rel="stylesheet">
+
+            <title>Section - Face Recognition </title>
+    </head>
+    <body>
+
+        <header>
+            <div class="main-heading">
+                <h1> -FACE RECOGNITION SECTION- </h1>
+            </div>
+            <div class="hero-text-box">
+                <a class="btn btn-full js--scroll-to-plans" href="#">Upload Image</a>
+                <a class="btn btn-ghost js--scroll-to-start" href="#">Click Image</a>     
+            </div>
+        </header>
+            
+        <section class="image">
+            <!-- Stream video via webcam -->
+            <div class="video-wrap">
+                <video id="video" playsinline autoplay></video>
+            </div>
+
+            <!-- Trigger canvas web API -->
+            <div class="controller">
+                <button id="snap">Capture</button>
+            </div>
+
+            <!-- Webcam video snapshot -->
+            <canvas id="canvas" width="640" height="480"></canvas>
+            
+            <div class="folder">
+                <h3>A demonstration of how to access a File Upload Button</h3>
+
+                <input type="file" id="myFile">
+
+                <p>Click the "Try it" button to disable the file upload button.</p>
+
+                <button onclick="myFunction()">Try it</button>
+
+                <script>
+                function myFunction() {
+                  var x = document.getElementById("myFile");
+                  x.disabled = true;
+                }
+                </script>
+            
+            </div>
+
+        
+        </section>
+        
+        <footer>
+            
+            <div class="row">
+                <div class="col span-1-of-2">
+                    <ul class="footer-nav">
+                        <li><a href="#">About us</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Android App</a></li>
+                    </ul>
+                </div>
+                <div class="col span-1-of-2">
+                    <ul class="social-links">
+                        <li><a href="#"><ion-icon name="logo-facebook"></ion-icon></a></li>
+                        <li><a href="#"><ion-icon name="logo-instagram"></ion-icon></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row">
+                <p>This is an integrated projet by a group of friends form Maharaja Surajmal Institute Of Technology
+                    <br>All rights Reserved
+                </p>
+                <p>
+                    Build with <ion-icon name="heart-outline" style="color: #ea0000; padding: 0 3px;"></ion-icon> in the beautiful city of Delhi, India, June 2020.
+                </p>
+            </div>
+
+        </footer>
+            <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
+            <script src="main/js/camera.js"></script>
+
+    </body>
+</html>
