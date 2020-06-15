@@ -26,29 +26,28 @@
             </div>
         </header>
             
-        <section>
+        <section class="camera-upload">
+            <h2>CLICK A PICTURE USING WEBCAM </h2>
             <!-- Stream video via webcam -->
            
-            <div>
-            <div>
-                <video autoplay playsinline muted id="wc" width="500" height="500"></video>
-            </div>
-            </div>
+        
+                <div class="camera">
+                    <video autoplay playsinline muted id="wc" width="550" height="550"></video>
+                </div>
 
-            <button type="button" id="startPredicting" onclick="startPredicting()" >Start Predicting</button>
-	       <button type="button" id="stopPredicting" onclick="stopPredicting()" >Stop Predicting</button>
-            <button type="button" id="saveModel" onclick="saveModel()" >Download Model</button>
-	       <div id="prediction"></div>
-            <p>
-            <button type="button" id="showModel" onclick="showModel()" >See Model Architecture</button>
-            </p>
-            </section>
+            <div class="buttons">
+            <a type="button" class="btn btn-ghost" id="startPredicting" onclick="startPredicting()"  href="#">Start Predicting</a>
+	        <a type="button" class="btn btn-ghost" id="stopPredicting" onclick="stopPredicting()" href="#" >Stop Predicting</a>
+            <a type="button" class="btn btn-ghost" id="saveModel" onclick="saveModel()" href="#" >Download Model</a>
+	        <a type="button" class="btn btn-ghost" id="showModel" onclick="showModel()" href="#" >See Model Architecture</a>
+    
+            </div>
             
             
             <div class="folder">
-                <h3>File Upload Button</h3>
+                <h2>Upload a file</h2>
 
-                <input type="file" id="myFile" class="btn btn-full">
+                <input type="file" id="myFile" class="btn btn-ghost">
 
                 <script>
                 function myFunction() {
@@ -59,7 +58,8 @@
             
             </div>
 
-        
+        </section>
+
      
         
         <footer>
@@ -97,4 +97,3 @@
 
     </body>
 </html>
-
