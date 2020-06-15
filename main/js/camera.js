@@ -1,43 +1,89 @@
-//dark mode
+let model;
+const compare = tf.tensor1d([0.5], dtype = 'float32')
+const webcam = new Webcam(document.getElementById('wc'));
+let isPredicting = false;
 
-
-'use strict';
-
-const video = document.getElementById('video');
-const canvas = document.getElementById('canvas');
-const snap = document.getElementById("snap");
-const errorMsgElement = document.querySelector('span#errorMsg');
-
-const constraints = {
-  audio: false,
-  video: {
-    width: 1280, height: 720
-  }
-};
-
-// Access webcam
-async function init() {
-  try {
-    const stream = await navigator.mediaDevices.getUserMedia(constraints);
-    handleSuccess(stream);
-  } catch (e) {
-    errorMsgElement.innerHTML = `navigator.getUserMedia error:${e.toString()}`;
-  }
+async function loadModel(){
+    model = await tf.loadLayersModel("model/model.json");
+    console.log('Var: '+compare)
+    return (model);
+    
 }
 
-// Success
-function handleSuccess(stream) {
-  window.stream = stream;
-  video.srcObject = stream;
+async function predict(){
+    while(isPredicting){
+        const output = tf.tidy(() => {
+            const img = webcam.capture();
+            const prediction =  model.predict(img);
+            return prediction.as1D().argMax();
+        });
+        classId = (await output.data())[0];
+        console.log(classId);
+        if(classId ==1){
+            predictionText = "I see a Dog";
+        }
+        else if(classId == 0){
+            predictionText = "I see a Cat";
+        }
+        else if(classId == 2){
+            predictionText = "No Cat or Dog";
+        }
+        document.getElementById("prediction").innerText = predictionText;
+        
+        output.dispose();
+        await tf.nextFrame();
+    }
 }
 
-// Load init
+async function getPrediction(img){
+    const output = tf.tidy(() => {
+        const prediction = model.predict(img);
+        return prediction.as1D().argMax();
+    })
+    const classId = (await output.data())[0];
+    console.log(classId);
+        if(classId == 1){
+            predictionText = "I see a Dog";
+        }
+        else if(classId == 0){
+            predictionText = "I see a Cat";
+        }
+        else if(classId==2){
+            predictionText = "No Cat or Dog";
+        }
+    document.getElementById("pred").innerText = predictionText;
+    output.dispose();
+}
+
+function showModel(){
+    tfvis.show.modelSummary({name:'Model Architecture'}, model);
+}
+
+function startPredicting(){
+    isPredicting = true;
+    predict();
+}
+
+function stopPredicting(){
+    isPredicting = false;
+    predict();
+}
+
+function saveModel(){
+    model.save("downloads://cat_dog_classifier");
+}
+
+
+    
+async function init(){
+    console.log("Loading the classifier model");
+    model = loadModel();
+    console.log('The model is loaded!');
+    console.log("setting up the webcam");
+    await webcam.setup();
+    console.log("webcam setup done!")
+    
+}
+
 init();
-
-// Draw image
-var context = canvas.getContext('2d');
-snap.addEventListener("click", function() {
-	context.drawImage(video, 0, 0, 720, 480);
-});
-
 
